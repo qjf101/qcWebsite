@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I.T. and Web Devlopment Services">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./responsiveStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@100;300;400&display=swap" rel="stylesheet">
+    <title>Quintusential Consulting</title>
+</head>
+<body onload="animateNavBar()">
+    <div id="mainContent">
+        <nav id="nav">
+            <div id="navContainer">
+                <a href="./index.html" id="logoLink">
+                <div class="headingContainer">
+                    <img alt="Quintusential Consulting Logo" loading="lazy" src="./assets/Quintusential Consulting-03-white.png" class="titleImage"/>
+                    <p>Quintusential Consulting</p>
+                </div>
+                </a>
+                <div class="menu">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner diagonal part-1"></div>
+                <div class="spinner horizontal"></div>
+                <div class="spinner diagonal part-2"></div>
+            </label>
+            <div id="sidebarMenu">
+                <ul>
+                    <li><a href="#home" onclick="setCheckbox()">Home</a></li>
+                    <li><a href="#services" onclick="setCheckbox()">Services</a></li>
+                    <li><a href="#portfolio" onclick="setCheckbox()">Portfolio</a></li>
+                    <li><a href="#contact" onclick="setCheckbox()">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="home">
+            <div class="leftHomeSection">
+                <div class="homeText">
+                    <h1 class="homeTitle">I.T. & Web Solutions</h1>
+                    <p class="homeBodyText">Professional IT, website, and app services for individual projects to small and mid-sized businesses.</p>
+                </div>
+                <a class="homeButton" href="#services">View Services</a>
+            </div>
+        </div>
+        <div id="services">
+            <div class="sectionTitleContainer"><h4 class="sectionTitle">services</h4></div>
+            <div id="servicesContainer">
+                <div class="serviceBlock">
+                    <div class="leftServiceSection">
+                        <div class="serviceText">
+                            <h2 class="serviceTitle">Website and App Development</h2>
+                            <ul class="serviceList">
+                                <li>
+                                    Front-end Web Development
+                                </li>
+                                <li>
+                                    Back-end Web Development
+                                </li>
+                                <li>
+                                    Full-stack Web Development
+                                </li>
+                                <li>
+                                    Wordpress
+                                </li>
+                                <li>
+                                    Cross-Platform App Development
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="serviceButtonContainer"><a class="serviceButton" href="#contact">Learn More</a></div>
+                    </div>
+                </div>
+                <div class="serviceBlock">
+                    <div class="leftServiceSection">
+                        <div class="serviceText">
+                            <h2 class="serviceTitle">I.T. Services</h2>
+                            <ul class="serviceList">
+                                <li>
+                                    Hardware Repairs
+                                </li>
+                                <li>
+                                    Small Office/Home Office Network Setup
+                                </li>
+                                <li>
+                                    VPN Setup (Securely access office resources on the go!)
+                                </li>
+                                <li>
+                                    Software installation and configuration
+                                </li>
+                                <li>
+                                    Technology Training (For yourself or a small employee group)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="serviceButtonContainer"><a class="serviceButton" href="#contact">Learn More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="portfolio">
+            <div class="sectionTitleContainer"><h4 class="sectionTitle">portfolio</h4></div>
+            <div id="portfolioGrid">
+                <div class="portfolioGridItem">
+                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/aestheticsByNkechiMockup.png');" onClick="openImageModal(this)" aria-label="Aesthetics By Nkechi Website Mockup">
+                        <div class="gridItemName"><p>Aesthetics By Nkechi</p></div>
+                    </a>
+                </div>
+                <div class="portfolioGridItem">
+                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/justSomePlantsMockup.png');" onClick="openImageModal(this)" aria-label="Just Some Plants Website Mockup">
+                        <div class="gridItemName"><p>justSomePlants</p></div>
+                    </a>
+                </div>
+                <div class="portfolioGridItem">
+                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/shahPropertiesMockup.png');" onClick="openImageModal(this)" aria-label="Shah Properties Website Mockup">
+                        <div class="gridItemName"><p>Shah Properties</p></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="contactBlock">
+                <div id="leftContactSection">
+                    <div id="contactInfoContainer">
+                        <h2>Contact Information</h2>
+                        <img src="./assets/c.png"/>
+                    </div>
+                    <img alt="Person Filling Out Contact Form" loading="lazy" id="contactImage" src="./assets/Get in touch-amico.webp"/>
+                </div>
+                <div id="rightContactSection">
+                    <h2>Get In Touch</h2>
+                    <p id="formErrorField"></p>
+                    <div id="contactForm">
+                        <form id="contact-form" action="send" method="post" enctype = "multipart/form-data">
+                            <div class="nameFormGroup">
+                            <input class="formControl" id="firstname" type="text" name="firstname" placeholder="First Name" required>
+                            <input class="formControl" id="lastname" type="text" name="lastname" placeholder="Last Name" required>
+                            <label for="honeypot" aria-hidden="true" class="visually-hidden">Honeypot <input type="radio" name="honeypot" id="honeypot" style="display:none" value="1"></label>
+                            </div>
+                            <div class="formGroup emailGroup">
+                            <input class="formControl" type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="formGroup">
+                            <textarea class="formControl" rows="10" cols="50" name="message" placeholder="Type your message here" required></textarea>
+                            </div>
+                            <div id="submitContainer">
+                            <input type="submit" class="btn btn-primary" id="submitButton" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div id="footer">
+            <h4>Copyright © 2022 Quintusential Consulting, LLC. All Rights Reserved.</h4>
+            <a target="_blank" href="https://storyset.com/work">Work illustrations by Storyset</a>
+        </div>
+    </div>
+    <div id="portfolioModal" class="modal">
+        <span class="close">&times;</span>
+        <img loading="lazy" class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    <div id="introContainer">
+        <img alt="Quintusential Consulting Logo" loading="lazy" id="introLogo" src="./assets/Quintusential Consulting-02.webp"/>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

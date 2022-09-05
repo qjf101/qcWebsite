@@ -1,0 +1,272 @@
+/*--------------- responsive -------------------------------------*/
+
+@media only screen and (max-width: 375px) {
+    .homeText {
+        padding-top: 40px;
+    }
+
+    .homeTitle {
+        font-size: 50px;
+        letter-spacing: 0;
+    }
+
+    #services {
+        height: 100%;
+    }
+
+    
+}
+
+@media only screen and (min-width: 601px) {
+    /* home section */
+    .homeTitle {
+        font-size: 64px;
+        padding-left: 20px;
+    }
+
+    .homeBodyText {
+        font-size: 20px;
+        padding-left: 20px;
+    }
+
+    .homeButton {
+        height: 30px;
+        margin-left: 20px;
+    }
+
+    #services {
+        height: 100vh;
+    }
+
+    .serviceText {
+        padding: 0;
+    }
+
+    .headingContainer p {
+        font-size: 28px;
+    }
+
+    .leftHomeSection {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    /*home section*/
+    #home {
+        flex-direction: unset;
+        justify-content: unset;
+    }
+    .leftHomeSection {
+        display: block;
+        width: 50%;
+        padding-left: 50px;
+    }
+    .homeText {
+        text-align: unset;
+    }
+    .homeTitle {
+        font-size: 78px;
+    }
+    .homeBodyText {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #services {
+        padding-top: 70px;
+        max-width: 65%;
+        justify-content: unset;
+    }
+    .serviceBlock {
+        flex-direction: unset;
+        margin-top: 40px;
+    }
+        
+    .serviceButton {
+        width: 60%;
+        padding: 9px 15px;
+    }
+    
+    .serviceImage {
+        width: 50%;
+        max-height: 300px;
+        display: flex;
+        justify-content: center;
+    }
+    .headingContainer {
+        margin-left: 70px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (min-height: 600px) {
+    #portfolio {
+        display: block;
+        height: 100vh;
+    }
+
+    #portfolioGrid {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: dense;
+        grid-auto-rows: minmax(100px, auto);
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        z-index: 1;
+        margin: auto;
+        max-width: 800px;
+        text-align: center;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    #contact {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .contactBlock {
+        flex-direction: unset;
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+        background-color:#f7f9fc;
+        overflow: hidden;
+    }
+    
+    #leftContactSection {
+        width: 50%;
+        padding-top: 40px;
+        box-shadow: 0;
+    }
+    
+    #rightContactSection {
+        width: 60%;
+        padding-top: 40px;
+        border-radius: 0;
+        box-shadow: 0;
+        background-color: unset;
+        border-radius: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    #navContainer .menu a {
+        padding-right: 80px;
+    }
+
+    .serviceBlock {
+        width: 49%;
+        margin-bottom: 0;
+    }
+
+    #servicesContainer {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .serviceBlock {
+        min-height: 468px;
+    }
+    .serviceTitle {
+        font-size: 32px;
+    }
+    .serviceList li {
+        font-size: 22px;
+    }
+    .serviceButton {
+        font-size: 22px;
+    }
+    .serviceImage {
+        max-height: 400px;
+    }
+
+
+    #portfolioGrid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: unset;
+    }
+    .gridImageContainer {
+        min-height: 400px;
+        width: 90%;
+    }
+
+
+    #navContainer .menu a {
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #home {
+        background-position-x: -400px;
+        background-image: url('./assets/3090598Overlay.png');
+    }
+}
+
+/*landscape mobile*/
+@media only screen and (orientation: landscape) and (max-width: 920px) and (max-height: 500px) {
+    #home {
+        height: auto;
+        background-position-x: unset;
+    }
+
+    #services {
+        height: 100%;
+    }
+
+    #sidebarMenu ul {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    #portfolioGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* intro */
+    #introContainer {
+        transform: translate(-50%, 30vh);
+    }
+    #introContainer #introLogo {
+        height: 20vh;
+    }
+
+    /* modal */
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1015px) {
+    /* nav */
+    #navContainer .menu {display: none;}
+    #navContainer .icon {
+        float: left;
+        display: block;
+        margin-right: 20px;
+        margin-left: auto;
+        font-size: 22px;
+    }
+    .headingContainer {
+        max-width: 100%;
+    }
+    #logoLink {
+        padding: 0;
+    }
+
+    .sidebarIconToggle {display: inline;}
+}
+
+@media only screen and (min-width: 1300px) {
+    .homeBodyText {
+        max-width: 90%;
+    }
+}
