@@ -6,7 +6,7 @@ const validator = require('email-validator');
 const sanitizeHtml = require('sanitize-html');
 const csp = require('./middleware/csp');
 const crypto = require('crypto');
-const querystring = require('querystring');
+const geoip = require('geoip-lite');
 const { json } = require('express');
 
 require("dotenv").config();
@@ -80,14 +80,57 @@ app.post("/send", (req, res) => {
 });
 
 //Middleware
-app.use(express.static('public'));
+app.use(express.static('public'), (req,res, next) => {
+    const frmBCard = req.query.source === 'bCardG1';
+
+    if (frmBCard) {
+        console.log(req.query.source);
+        let ip = req.header('x-forwarded-for') || req.socket.remoteAddress;
+        if (ip.substring(0, 7) == "::ffff:") {
+            ip = ip.substring(7)
+        }
+        let geo = geoip.lookup(ip);
+        console.log(ip)
+        console.log(geo)
+        
+        let date_ob = new Date();
+        let day = ("0" + date_ob.getDate()).slice(-2);
+        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        let year = date_ob.getFullYear();
+        let date = year + "-" + month + "-" + day;
+        let hours = date_ob.getHours();
+        let minutes = date_ob.getMinutes();
+        let seconds = date_ob.getSeconds();
+        let dateTime = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+        
+        console.log(dateTime);
+
+        const mail = {
+            from: 'no-reply@quintusentialconsulting.com',
+            to: process.env.EMAIL, // receiver email,
+            subject: `Business card scanned by: ${ip}`,
+            text: `Ip: ${ip} \nDate: ${dateTime}  \n\n Location: ${geo}`,
+        };
+
+        if (ip != '::1') {
+            transporter.sendMail(mail, (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('card scan msg sent')
+            }
+            });
+        }
+    }
+
+    next()
+});
 
 const generateNonce = () => {
     return crypto.randomBytes(16).toString('base64');
 };
 
 app.get('/', csp('index.html', generateNonce()),  (req, res) => {
-    
 
 });
 
