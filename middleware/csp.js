@@ -12,12 +12,17 @@ const getHtml = path => new Promise((resolve, reject) =>
   }));
 
 const csp = (page, nonce) => async (req, res, next) => {
-  const pagePath = path.join(dirViews, page);
+  const pagePath = path.join('./', page);
   let html = cache.get(pagePath);
   if (!html) {
     html = await getHtml(pagePath);
   }
-  html = html.replace(/<script/g, `<script nonce="${nonce}"`);
+  res.header(
+    'Content-Security-Policy',
+    `default-src 'self' 'nonce-${nonce}'; font-src 'self' 'nonce-${nonce}' https://fonts.gstatic.com; img-src 'self'; script-src 'self' 'nonce-${nonce}'; style-src 'self' 'nonce-${nonce}' https://fonts.googleapis.com; frame-src 'self'`
+  );
+  newHTML = html.replace(/ncn/g, `nonce="${nonce}"`);
+
   res.send(newHTML);
 }
 

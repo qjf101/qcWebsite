@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@100;300;400&display=swap" rel="stylesheet">
     <title>Quintusential Consulting</title>
 </head>
-<body onload="animateNavBar()">
+<body>
     <div id="mainContent">
         <nav id="nav">
             <div id="navContainer">
@@ -36,10 +36,10 @@
             </label>
             <div id="sidebarMenu">
                 <ul>
-                    <li><a href="#home" onclick="setCheckbox()">Home</a></li>
-                    <li><a href="#services" onclick="setCheckbox()">Services</a></li>
-                    <li><a href="#portfolio" onclick="setCheckbox()">Portfolio</a></li>
-                    <li><a href="#contact" onclick="setCheckbox()">Contact</a></li>
+                    <li><a href="#home" class="sideMenuA">Home</a></li>
+                    <li><a href="#services" class="sideMenuA">Services</a></li>
+                    <li><a href="#portfolio" class="sideMenuA">Portfolio</a></li>
+                    <li><a href="#contact" class="sideMenuA">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -111,22 +111,22 @@
             <div class="sectionTitleContainer"><h4 class="sectionTitle">portfolio</h4></div>
             <div id="portfolioGrid">
                 <div class="portfolioGridItem">
-                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/aestheticsByNkechiMockup.png');" onClick="openImageModal(this)" aria-label="Aesthetics By Nkechi Website Mockup">
+                    <a class="gridImageContainer" id="AestheticsByNkechi" aria-label="Aesthetics By Nkechi Website Mockup">
                         <div class="gridItemName"><p>Aesthetics By Nkechi</p></div>
                     </a>
                 </div>
                 <div class="portfolioGridItem">
-                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/justSomePlantsMockup.png');" onClick="openImageModal(this)" aria-label="Just Some Plants Website Mockup">
+                    <a class="gridImageContainer" id="justSomePlants" aria-label="Just Some Plants Website Mockup">
                         <div class="gridItemName"><p>justSomePlants</p></div>
                     </a>
                 </div>
                 <div class="portfolioGridItem">
-                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/shahPropertiesMockup.png');" onClick="openImageModal(this)" aria-label="Shah Properties Website Mockup">
+                    <a class="gridImageContainer" id="ShahProperties" aria-label="Shah Properties Website Mockup">
                         <div class="gridItemName"><p>Shah Properties</p></div>
                     </a>
                 </div>
                 <div class="portfolioGridItem">
-                    <a class="gridImageContainer" style="background-image: url('./assets/portfolioImages/etherealImagery.png');" onClick="openImageModal(this)" aria-label="Ethereal Imagery Website Mockup">
+                    <a class="gridImageContainer" id="EtherealImagery" aria-label="Ethereal Imagery Website Mockup">
                         <div class="gridItemName"><p>Ethereal Imagery</p></div>
                     </a>
                 </div>
@@ -149,7 +149,7 @@
                             <div class="nameFormGroup">
                             <input class="formControl" id="firstname" type="text" name="firstname" placeholder="First Name" required>
                             <input class="formControl" id="lastname" type="text" name="lastname" placeholder="Last Name" required>
-                            <label for="honeypot" aria-hidden="true" class="visually-hidden">Honeypot <input type="radio" name="honeypot" id="honeypot" style="display:none" value="1"></label>
+                            <label for="honeypot" aria-hidden="true" class="visually-hidden">Honeypot <input type="radio" name="honeypot" id="h" value="1"></label>
                             </div>
                             <div class="formGroup emailGroup">
                             <input class="formControl" type="email" name="email" placeholder="Email" required>
@@ -178,6 +178,6 @@
     <div id="introContainer">
         <img alt="Quintusential Consulting Logo" loading="lazy" id="introLogo" src="./assets/Quintusential Consulting-02.webp"/>
     </div>
-    <script src="./index.js"></script>
+    <script ncn src="./index.js"></script>
 </body>
 </html>

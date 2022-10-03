@@ -6,12 +6,13 @@ const validator = require('email-validator');
 const sanitizeHtml = require('sanitize-html');
 const csp = require('./middleware/csp');
 const crypto = require('crypto');
+const querystring = require('querystring');
 const { json } = require('express');
 
 require("dotenv").config();
 const app = express();
 
-const PORT  = process.env.PORT || 5001;
+const PORT  = process.env.PORT || 5002;
 
 app.use(cors({ origin: "*" }));
 
@@ -80,13 +81,14 @@ app.post("/send", (req, res) => {
 
 //Middleware
 app.use(express.static('public'));
-app.get('/', (req, res) => {
-    let nonce = crypto.randomBytes(16).toString('base64');
-    res.setHeader(
-      'Content-Security-Policy',
-      `default-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self'; script-src 'self' 'nonce-${nonce}'; style-src 'self' https://fonts.googleapis.com; frame-src 'self'`
-    );
-    csp('index.html', nonce)
+
+const generateNonce = () => {
+    return crypto.randomBytes(16).toString('base64');
+};
+
+app.get('/', csp('index.html', generateNonce()),  (req, res) => {
+    
+
 });
 
 app.listen(PORT);
