@@ -329,6 +329,10 @@ html {
     padding-bottom: 30px;
 }
 
+.portfolioGridItem a {
+    text-decoration: none;
+}
+
 .gridImageContainer {
     background-color: #e5e5e5;
     display: flex;

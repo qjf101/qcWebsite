@@ -99,20 +99,25 @@ modal.style.display = "none";
 document.body.style.overflowY = 'unset';
 }
 
-const pItems = ['AestheticsByNkechi', 'justSomePlants', 'ShahProperties', 'EtherealImagery'];
+const pItems = ['AestheticsByNkechi', 'justSomePlants', 'ShahProperties', 'EtherealImagery', 'NodeIM'];
+const liveItems = ['NodeIM'];
 const pImages = {
     'AestheticsByNkechi': './assets/portfolioImages/aestheticsByNkechiMockup.png',
     'justSomePlants': './assets/portfolioImages/justSomePlantsMockup.png',
     'ShahProperties': './assets/portfolioImages/shahPropertiesMockup.png',
-    'EtherealImagery': './assets/portfolioImages/etherealImagery.png'
+    'EtherealImagery': './assets/portfolioImages/etherealImagery.png',
+    'NodeIM': './assets/portfolioImages/nodeIM.png'
 };
 
 pItems.forEach((i) => {
     let portfolioItem = document.getElementById(i);
     portfolioItem.style.backgroundImage = `url(${pImages[i]})`;
-    portfolioItem.addEventListener('click', () => {
-        openImageModal(portfolioItem);
-    });
+    
+    if (!liveItems.includes(i)) {
+        portfolioItem.addEventListener('click', () => {
+            openImageModal(portfolioItem);
+        });
+    }
 });
 
 
